@@ -425,6 +425,7 @@ def tokenize_dialogue(dialogue, name1, name2):
 def save_history(mode, timestamp=False):
     # Instruct mode histories should not be saved as if
     # Alpaca or Vicuna were characters
+    backupFname = None
     if mode == 'instruct':
         if not timestamp:
             return
@@ -435,12 +436,17 @@ def save_history(mode, timestamp=False):
             fname = f"{shared.character}_{datetime.now().strftime('%Y%m%d-%H%M%S')}.json"
         else:
             fname = f"{shared.character}_persistent.json"
+        backupFname = f"{shared.character}_{datetime.now().strftime('%Y%m%d-%H%M')}.json"
 
     if not Path('logs').exists():
         Path('logs').mkdir()
 
     with open(Path(f'logs/{fname}'), 'w', encoding='utf-8') as f:
         f.write(json.dumps({'data': shared.history['internal'], 'data_visible': shared.history['visible']}, indent=2))
+
+    with open(Path(f'logs/{shared.model_name}.{backupFname}'), 'w', encoding='utf-8') as f:
+        f.write(json.dumps({'data': shared.history['internal'], 'data_visible': shared.history['visible']}, indent=2))
+
 
     return Path(f'logs/{fname}')
 
