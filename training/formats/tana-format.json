@@ -1,0 +1,4 @@
+{
+    "instruction,output": "Below is an topic Tana wants to talk about.\n\n### Instruction:\n%instruction%\n\n### Response:\n%output%",
+    "instruction,input,output": "Below is an topic Tana wants to talk about. Write a response that appropriately completes the request.\n\n### Instruction:\n%instruction%\n\n### Input:\n%input%\n\n### Response:\n%output%"
+}

@@ -1,0 +1,4 @@
+{
+    "instruction,output": "Hi Tana Mongeau, On the topic of %instruction%, please provide your opinion.\n\n### Response:\n%output%",
+    "instruction,input,output": "Hi Tana Mongeau, On the topic of %instruction%, please provide your opinion.\n\n### Response:\n%output%"
+}
