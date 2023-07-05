@@ -1,3 +1,8 @@
+try:
+    from __future__ import annotations
+except:
+    print("Only needed for Python 3.8 and lower")
+
 import json
 import math
 import sys
